@@ -2,13 +2,13 @@
 
 - design要给出一个workable solution
 
-- ### design whatsapp, design facebook messenger, instagram， design wechat design facebook live comments.
+- ### design whatsapp, design facebook messenger, instagram， design wechat design facebook live comments design design slack
 
 
 - 聊天系统的核心： real time service
 - online status: pull vs push
 
-
+https://www.youtube.com/watch?v=zKPNUMkwOJE
 
 
 https://blog.usejournal.com/whatsapp-system-design-and-chat-messaging-architecture-part-1-29fb4f0d14af
@@ -19,13 +19,21 @@ https://medium.com/codingurukul/whatsapp-engineering-inside-2-bdd1ec354748
 
 1. 如何分析数据流？  facebook messenger vs whatsapp
 
-1. 支持单个设备，不支持聊天历史记录
+1. whatsapp支持单个设备，不支持聊天历史记录,一旦接收方接收了，就从服务器上删除， end to end encryption is turned on 
 
-1. facebook messanger:支持多个设备，支持聊天记录
+1. facebook messanger:支持多个设备，支持聊天记录,保留所有聊天记录在服务器上直到你删除它, end to end encryption is turned on by option
 
 1. whatsapp多个数据流：面试过不过，取决于能不能分析出4条数据流
 
 1. highlight:  隐私设计(服务器端不存储消息历史，传输过程加密)，数据流
+
+
+### features / topics
+ - one to one chatting
+ - online/send/read
+ - sending pictures or other files
+ - database
+ - security
 
 
 # design whatsapp
@@ -216,3 +224,25 @@ realtime service  负责信息推送
 
 
 ![20210706080820](https://raw.githubusercontent.com/corykingsf/hack-system-design-pixel/main/pictures/20210706080820.png)
+
+![20210706083327](https://raw.githubusercontent.com/corykingsf/hack-system-design-pixel/main/pictures/20210706083327.png)
+
+
+sql中一张表建两个index, 在nosql里怎么做，建两张表
+
+
+![20210706084514](https://raw.githubusercontent.com/corykingsf/hack-system-design-pixel/main/pictures/20210706084514.png)
+
+![20210706084744](https://raw.githubusercontent.com/corykingsf/hack-system-design-pixel/main/pictures/20210706084744.png)
+
+### sharding的原则是根据查询的需求来的
+
+![20210706092722](https://raw.githubusercontent.com/corykingsf/hack-system-design-pixel/main/pictures/20210706092722.png)
+
+![20210706093234](https://raw.githubusercontent.com/corykingsf/hack-system-design-pixel/main/pictures/20210706093234.png)
+
+![20210706093402](https://raw.githubusercontent.com/corykingsf/hack-system-design-pixel/main/pictures/20210706093402.png)
+
+![20210706100154](https://raw.githubusercontent.com/corykingsf/hack-system-design-pixel/main/pictures/20210706100154.png)
+
+![20210706103022](https://raw.githubusercontent.com/corykingsf/hack-system-design-pixel/main/pictures/20210706103022.png)
