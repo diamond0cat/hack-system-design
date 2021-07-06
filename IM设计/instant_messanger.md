@@ -246,3 +246,28 @@ sql中一张表建两个index, 在nosql里怎么做，建两张表
 ![20210706100154](https://raw.githubusercontent.com/corykingsf/hack-system-design-pixel/main/pictures/20210706100154.png)
 
 ![20210706103022](https://raw.githubusercontent.com/corykingsf/hack-system-design-pixel/main/pictures/20210706103022.png)
+
+
+### 使用channel service 优化群聊
+
+![20210706104013](https://raw.githubusercontent.com/corykingsf/hack-system-design-pixel/main/pictures/20210706104013.png)
+
+![20210706104503](https://raw.githubusercontent.com/corykingsf/hack-system-design-pixel/main/pictures/20210706104503.png)
+
+![20210706104643](https://raw.githubusercontent.com/corykingsf/hack-system-design-pixel/main/pictures/20210706104643.png)
+
+考点：
+数据流功能设计
+数据库设计
+api设计
+
+![20210706120631](https://raw.githubusercontent.com/corykingsf/hack-system-design-pixel/main/pictures/20210706120631.png)
+
+### 多机登录
+![20210706121318](https://raw.githubusercontent.com/corykingsf/hack-system-design-pixel/main/pictures/20210706121318.png)
+
+![20210706122703](https://raw.githubusercontent.com/corykingsf/hack-system-design-pixel/main/pictures/20210706122703.png)
+
+![20210706124055](https://raw.githubusercontent.com/corykingsf/hack-system-design-pixel/main/pictures/20210706124055.png)
+
+![20210706124330](https://raw.githubusercontent.com/corykingsf/hack-system-design-pixel/main/pictures/20210706124330.png)
