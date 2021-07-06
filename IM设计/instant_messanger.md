@@ -1,12 +1,12 @@
-设计即时通讯系统(ACE, JiuZhang, groking_system_design_interview)
+- 设计即时通讯系统(ACE, JiuZhang, groking_system_design_interview)
 
-design要给出一个workable solution
+- design要给出一个workable solution
 
-### design whatsapp, design facebook messenger, instagram， design wechat design facebook live comments.
+- ### design whatsapp, design facebook messenger, instagram， design wechat design facebook live comments.
 
 
-聊天系统的核心： real time service
-online status: pull vs push
+- 聊天系统的核心： real time service
+- online status: pull vs push
 
 
 
@@ -49,20 +49,20 @@ https://medium.com/codingurukul/whatsapp-engineering-inside-2-bdd1ec354748
 
 
 
-**http** long polling与websocket什么区别？
+- **http** long polling与websocket什么区别？
 
 
 
 ### estimation
-whatsapp的系统瓶颈在哪里？ 
-  ongoing connection消耗内存
+- whatsapp的系统瓶颈在哪里？ 
+    - ongoing connection消耗内存
 
 
-使用websocket的服务，ongoing  connection都是瓶颈
+- 使用websocket的服务，ongoing  connection都是瓶颈
 
-websocket单机最多能维持10M connecton,不会受到tcp ports的限制（65k）
+- websocket单机最多能维持10M connecton,不会受到tcp ports的限制（65k）
 
-存储资源怎么计算？ 
+- 存储资源怎么计算？ 
 
 ![20210705112550](https://raw.githubusercontent.com/corykingsf/hack-system-design-pixel/main/pictures/20210705112550.png)
 
@@ -71,19 +71,19 @@ websocket单机最多能维持10M connecton,不会受到tcp ports的限制（65k
 为什么不叫qps,叫message delivery rate:
 
 ## data flow
-data flow的设计相当于是test case, data flow设计清楚了先，再system design, 相当于Test driven development
+- data flow的设计相当于是test case, data flow设计清楚了先，再system design, 相当于Test driven development
 
 
-### 一对一聊天 消息状态的四条核心信息流：
-发送方和接受方都在线
+### 一对一聊天 消息状态的四条核心信息流： 
+- 发送方和接受方都在线
 
-发送方在线，接收方不在线
+- 发送方在线，接收方不在线
 
 ### One to One Chat and Sent + Delivered + Read receipts
 
 ![20210705130718](https://raw.githubusercontent.com/corykingsf/hack-system-design-pixel/main/pictures/20210705130718.png)
 
-sender, receipent的websocket server不一样，messing service不一样，同时要考虑消息顺序问题
+- sender, receipent的websocket server不一样，messing service不一样，同时要考虑消息顺序问题
 
 
 ![20210705130730](https://raw.githubusercontent.com/corykingsf/hack-system-design-pixel/main/pictures/20210705130730.png)
@@ -215,3 +215,4 @@ realtime service  负责信息推送
 ![20210705224219](https://raw.githubusercontent.com/corykingsf/hack-system-design-pixel/main/pictures/20210705224219.png)
 
 
+![20210706080820](https://raw.githubusercontent.com/corykingsf/hack-system-design-pixel/main/pictures/20210706080820.png)
