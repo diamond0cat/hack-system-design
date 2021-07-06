@@ -1,6 +1,14 @@
 设计即时通讯系统(ACE, JiuZhang, groking_system_design_interview)
 
-###主要包括desig whatsapp, facebook messanger, instagram
+design要给出一个workable solution
+
+### design whatsapp, design facebook messenger, instagram， design wechat design facebook live comments.
+
+
+聊天系统的核心： real time service
+online status: pull vs push
+
+
 
 
 https://blog.usejournal.com/whatsapp-system-design-and-chat-messaging-architecture-part-1-29fb4f0d14af
@@ -19,6 +27,8 @@ https://medium.com/codingurukul/whatsapp-engineering-inside-2-bdd1ec354748
 
 1. highlight:  隐私设计(服务器端不存储消息历史，传输过程加密)，数据流
 
+
+# design whatsapp
 
 ### requirments
 ![20210705095305](https://raw.githubusercontent.com/corykingsf/hack-system-design-pixel/main/pictures/20210705095305.png)
@@ -137,12 +147,71 @@ send message
 ![20210705144814](https://raw.githubusercontent.com/corykingsf/hack-system-design-pixel/main/pictures/20210705144814.png)
 
 
-
-## facebook messanger的考察重点是存储：
+# design facebook messenger
+## facebook messenger的考察重点是存储：
 
 
 ![20210705150002](https://raw.githubusercontent.com/corykingsf/hack-system-design-pixel/main/pictures/20210705150002.png)
 ![20210705145805](https://raw.githubusercontent.com/corykingsf/hack-system-design-pixel/main/pictures/20210705145805.png)
 
 ![20210705150030](https://raw.githubusercontent.com/corykingsf/hack-system-design-pixel/main/pictures/20210705150030.png)
+
+
+
+### design wechat
+
+![20210705203108](https://raw.githubusercontent.com/corykingsf/hack-system-design-pixel/main/pictures/20210705203108.png)
+
+![20210705204705](https://raw.githubusercontent.com/corykingsf/hack-system-design-pixel/main/pictures/20210705204705.png)
+
+wechat是点对点的吗？ 看了之后会在服务器上保留一个月
+
+微信语音是p2p的
+
+telegram是点对点加密  whatsapp也是点对点的
+
+### 服务
+messaging service 负责信息存取
+realtime service  负责信息推送
+
+![20210705205831](https://raw.githubusercontent.com/corykingsf/hack-system-design-pixel/main/pictures/20210705205831.png)
+
+![20210705205850](https://raw.githubusercontent.com/corykingsf/hack-system-design-pixel/main/pictures/20210705205850.png)
+
+
+![20210705210156](https://raw.githubusercontent.com/corykingsf/hack-system-design-pixel/main/pictures/20210705210156.png)
+
+![20210705210259](https://raw.githubusercontent.com/corykingsf/hack-system-design-pixel/main/pictures/20210705210259.png)
+
+![20210705210325](https://raw.githubusercontent.com/corykingsf/hack-system-design-pixel/main/pictures/20210705210325.png)
+
+![20210705210422](https://raw.githubusercontent.com/corykingsf/hack-system-design-pixel/main/pictures/20210705210422.png)
+
+![20210705210435](https://raw.githubusercontent.com/corykingsf/hack-system-design-pixel/main/pictures/20210705210435.png)
+
+
+问题：有些thread信息是私有的
+怎么解决？  
+
+![20210705211124](https://raw.githubusercontent.com/corykingsf/hack-system-design-pixel/main/pictures/20210705211124.png)
+
+
+
+
+![20210705224410](https://raw.githubusercontent.com/corykingsf/hack-system-design-pixel/main/pictures/20210705224410.png)
+
+
+把updated_at挪到user thread table支持按更新时间排序，如果放在另一种表里就会效率非常的低
+
+![20210705211521](https://raw.githubusercontent.com/corykingsf/hack-system-design-pixel/main/pictures/20210705211521.png)
+
+![20210705211532](https://raw.githubusercontent.com/corykingsf/hack-system-design-pixel/main/pictures/20210705211532.png)
+
+工程中如何避免join:把常用的thread cache起来
+
+![20210705212913](https://raw.githubusercontent.com/corykingsf/hack-system-design-pixel/main/pictures/20210705212913.png)
+
+
+![20210705224219](https://raw.githubusercontent.com/corykingsf/hack-system-design-pixel/main/pictures/20210705224219.png)
+
 
