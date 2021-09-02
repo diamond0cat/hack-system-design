@@ -1,0 +1,1 @@
+low level deisgn: more focus on the code, functions and objects

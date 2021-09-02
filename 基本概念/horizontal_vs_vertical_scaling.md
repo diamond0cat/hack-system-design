@@ -1,9 +1,21 @@
 
 Horizontal scaling means that you can scale by adding more machines into your pool of resources, whereas vertical scaling means that you scaled by adding more power (CPU, RAM) to an existing machine.
 
-Horizontal Scaling - basically copy & pasting your current setup. You don’t improve the specifications in any way, you just have more of those instances by adding more machines.
 
-Vertical Scaling- you can start with your current set up, but improve on it by adding more features and upgrading the specs.
+we can increase system's scalability by:
+Horizontal Scaling:-
+ * good for load balancing
+ * resilient
+ * network calls(RPC)  --- slow
+ * loose transaction guarantee --> data inconsistency is an issue
+ * scale well as users increase
+
+Vertical Scaling
+* N/A
+* single point failure
+* inter process communication -- fast
+* consistent
+* hardware limit
 
 
 ![20210801084732](https://i.loli.net/2021/08/01/n463rzjZdS1QmgY.png)
