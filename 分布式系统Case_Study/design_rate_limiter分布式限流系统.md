@@ -1,7 +1,23 @@
-what is rate limiter? 
+what is rate limiter?  防爬虫，防ddos attack,防用户程序bug(多线程)， black friday促销，内部服务如果出问题需要主动限流降级，服务本身有处理容量限制
+
+![picture 1](https://i.loli.net/2021/09/12/AKU78pcGJrbYl6h.png)  
+github对于未认证的请求: 60/per hour, authenticated:  5000 /per hour, api response headers中给出限流信息
+
+linkedin API rate limiting:  application throttle/user throttle/developer throttle不一样的限流配额
+
+bitly api rate limiting:   per month/hour/minute/ per-ip, 
 * used to control the rate of traffic sent by a client or a service
 * A rate limiter limits the number of clients requests allowed to be sent over a specfied period.
-  
+ 
+ ![  1](https://i.loli.net/2021/09/12/E4sHGZYogI7btuS.png)  
+ 防止用户程序问题:用户程序可能会有bug
+
+
+限流程序一般部署在反向代理或者是网关上，所以它的性能和可靠性非常关键
+
+
+
+
 benefits of rate limiter:
 * prevent resource starvation caused by DDos stack
 * Reduce cost
