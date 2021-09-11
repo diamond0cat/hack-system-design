@@ -15,3 +15,10 @@ requirement没有clarify好
 
 https://leetcode.com/discuss/general-discussion/1082786/System-Design%3A-Designing-a-distributed-Job-Scheduler-or-Many-interesting-concepts-to-learn
 
+
+这里先给出基于db的light 延迟任务队列： 研究一下db-scheduler的实现
+
+乐观锁实现并发控制，基于版本号的乐观锁
+
+
+
