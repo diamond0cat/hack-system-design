@@ -22,3 +22,11 @@ https://leetcode.com/discuss/general-discussion/1082786/System-Design%3A-Designi
 
 
 
+does job have dependency? circular dependency?
+
+what’s job type?  if job running too long  ? job status
+
+
+how we handle failed job?   what about worker died after pulling job from db?
+
+when do we need to notify client?
