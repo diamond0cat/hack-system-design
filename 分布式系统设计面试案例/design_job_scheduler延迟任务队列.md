@@ -30,3 +30,18 @@ what’s job type?  if job running too long  ? job status
 how we handle failed job?   what about worker died after pulling job from db?
 
 when do we need to notify client?
+
+
+functinoal requirement
+
+
+non-functional requirement
+
+
+
+workers health check
+
+
+
+resource manager manage all the workers and start new workers if all workers are busy
+
