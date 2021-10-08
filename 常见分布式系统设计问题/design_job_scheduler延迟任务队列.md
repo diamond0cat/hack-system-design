@@ -1,5 +1,6 @@
 - Asked by Altassian on 9/2/2021
-
+- https://github.com/PagerDuty/scheduler
+- https://analysys.github.io/easyscheduler_docs/architecture-design.html
 ### design distributed job scheduler:
 
 - why use redis instead of database?
