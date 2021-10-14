@@ -24,3 +24,12 @@
 - memcached不支持队列结构
 
 ![20211013231111](https://raw.githubusercontent.com/corykingsf/hack-interview-handbook/main/image/20211013231111.png)
+
+
+- redis可以做消息队列： redis可以实现消息中间件，可以根据列表类型的存储结构实现队列：
+  - 生产者命令 LPUSH key value[value...] RPUSH key value[value...]
+  - 消费者命令： RPOP key 或者 BRPOP key timeout, LPOP key 或者BLPOP key timeout
+  - 阻塞消费者命令： timeout为0时，不设置超时时间，一直等待，直到有消息，如果设置数字，则单位为秒
+
+
+![20211013232119](https://raw.githubusercontent.com/corykingsf/hack-interview-handbook/main/image/20211013232119.png)
