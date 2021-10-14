@@ -33,3 +33,18 @@
 
 
 ![20211013232119](https://raw.githubusercontent.com/corykingsf/hack-interview-handbook/main/image/20211013232119.png)
+
+
+![20211013233534](https://raw.githubusercontent.com/corykingsf/hack-interview-handbook/main/image/20211013233534.png)
+
+
+4s分析法
+-
+
+- scenario, service, storage, scale
+
+![20211013234013](https://raw.githubusercontent.com/corykingsf/hack-interview-handbook/main/image/20211013234013.png)
+
+- 不同类型的事情丢给不同的service去做， 把大的系统进行拆分,拆成小的Moduel
+
+- DAU, MAU
