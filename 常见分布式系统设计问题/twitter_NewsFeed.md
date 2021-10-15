@@ -77,8 +77,6 @@ pull model
 - news feed如何存取：
 
 
-
-
 ![20211014231756](https://raw.githubusercontent.com/corykingsf/hack-interview-handbook/main/image/20211014231756.png)
 
 
@@ -95,4 +93,10 @@ pull model
 - Media Storage，用于存放图像等媒体数据，这可以是一个 “单纯” 的分布式文件系统，比如 HDFS。
 - 用户推文的时候，根据用户所应对的策略，如果需要 fan out 推文的 id 到粉丝的时间线中，就要把这个事件进 queue，由于它是异步模型，这一步可能会有不同程度的延迟。
 在用户读取的时候，缓存是非常重要的，考虑到需要的容量巨大，为了增加命中率，减少冗余的缓存信息，可以使用集中式缓存集群。
-- Aggregation Service 是用来从多个存储节点中为某个用户拉取数据（pull 模型），合并时间线，并返回的。为了提高效率，这里是多个并行拉取，再聚合的。这些数据可能是即时拉取的（pull 模型），也可能是已经，或者部分已经在之前的 Fan-out 流程中写入存储而准备好了的（push 模型）。
+- Aggregation Service 是用来从多个存储节点中为某个用户拉取数据（pull 模型），合并时间线，并返回的。为了提高效率，这里是多个并行拉取，再聚合的。这些数据可能是即时拉取的（pull 模型），也可能是已经，或者部分已经在之前的 Fan-out 流程中写入存储而准备好了的（push 
+- 用户的 timeline 的生成是通过 aggregation service 是从用户所 subscribe 的人的 DB 里去取数据（包括用户自己），再经过合并后推给用户。但如果对于名人而言也是从他们的 DB 取数据的话，fan-out queue 就没有任何意义了。所以我觉得 fan-out queue 的作用是，直接把名人的数据推到他的粉丝的 aggeregation service 的 queue 里，这样就避免了对名人的 DB 的读操作。
+
+- 新浪微博挂掉的原因之一是，如果你访问了该名人的页面，那自然就必须读取该名人的 DB，那就不可避免地会挂掉。fan-out 的作用之一就是尽可能避免对名人所对应的 DB 的读操作。
+- push模型的缺陷：粉丝数可能特别多：
+![20211014233937](https://raw.githubusercontent.com/corykingsf/hack-interview-handbook/main/image/20211014233937.png)
+
