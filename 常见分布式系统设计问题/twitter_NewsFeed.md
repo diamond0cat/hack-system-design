@@ -1,3 +1,6 @@
+  - 从概念入手： what is newsfeed? News feed is the constantly updating list of stories in the middle of your home page. news feed included status updates, photos, videos, links, app activity and likes from people, Pages and groups that you follow on Facebook
+  - How news feed works?
+- 
 - clarification:
     how to ask questions?明确需求和scale 需要哪些功能？系统规模多大？
 - 今天记录 Feed 流系统的设计学习笔记，Feed 流常见系统包括 Twitter、微博、Instagram 和抖音等等，它们的特点是，每个用户都是内容创作者，每个用户也都是内容消费者，每个用户看到的内容都是不同的，它取决于用户所关注的用户列表，再结合时间线（有时还包括优先级）将这些用户的最新 feed 聚合，并以流的方式展示出来。
