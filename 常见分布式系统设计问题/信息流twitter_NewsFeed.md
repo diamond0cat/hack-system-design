@@ -34,7 +34,9 @@
 
 ![20211013235909](https://raw.githubusercontent.com/corykingsf/hack-interview-handbook/main/image/20211013235909.png)
 
-
+- non functional requirements:
+  - real time or non real time: Our system should be able to generate any user’s newsfeed in real-time - maximum latency seen by the end user would be 2s.
+  - A post shouldn’t take more than 5s to make it to a user’s feed assuming a new newsfeed request comes in.
 
 - 常用的估算有用的数字：
 ```
@@ -59,6 +61,14 @@
 
 ```
 
+API design
+-
+
+
+
+data model design
+-
+
 - 存储：文件，SQL, NoSQL;如果只是简单数据，通过文件系统读取比数据库要搞笑，数据库每一步操作都需要Log，备份，事务提交等，比修改文件麻烦多了
 - 缓存放什么：不需要支持数据持久化的数据，特点是访问效率高，内存级别访问速度
 
@@ -73,6 +83,9 @@
 
 - nosql中是如何通过key找到value的：每个key查找value时，首先计算idx=hash_function(key),得到一个索引地址，然后去这个索引地址的链表上找到对应的key中value返回即可
 
+
+high level system design
+-
 
 pull model 
 -
