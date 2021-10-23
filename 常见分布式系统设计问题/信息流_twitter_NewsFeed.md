@@ -2,9 +2,17 @@
   - How news feed works?
 
 
+- high level design: twitter, user service, timeline ervice
+
+
+### ask interviewer what exactly they are expecting
+
 - Let’s design a newsfeed for Facebook with the following requirements:
 
 - Functional requirements:
+  - sending a tweet
+  - timeline: an updating list where you see all the tweets from people you follow
+  - show tweets in chronological order
   - Newsfeed will be generated based on the posts from the people, pages, and groups that a user follows.
   - A user may have many friends and follow a large number of pages/groups.
   - Feeds may contain images, videos, or just text.
@@ -28,19 +36,45 @@
   - 1 billion = 1000 million = 10 ^ 9   facebook DAU: 1000 million
   - 1 million = 10 ^ 6
 
+### in 2010, twitter:  150M world wide active users, => 300K QPS for tiemlines  ==> naitve materialization just doesn't work (doing a masstive SELECT statement over a MySQL table and something, which Twitter have tried that, it doesn't really work.
+
+
+### only user timeline is stored in disk, home timeline is stored in in-memory db.
+
+- characteristic of twitter:
+  - read heavy
+
+- non-functional requirments:
+  - we are more about availability
+  - less about consistency (eventutual consistency)
+  - low latency
+  - super fast read function
+  - -  It is that people are creating content all the time on the Twitter platform, and then the Java is where platforms to figure out how to syndicate this content out to how to send it to that one follower who might be following you or the N followers that might be following you are our real challenge is really the real time constraint around Twitter like it's unacceptable for us for have to have messages to get to our users in anything more than about five seconds.
 
 Functionalities
+store and get images
 Post
 GetFeed.
 Comment
 Like.
+follow someone
 
 
-non-functional requirments:
-high available
-low latency
 
-```
+- twitter has multiple data centers and multiple regions and maybe caching in place and whatever it may be so you need some central poitn close to your region when your api call lands and then get distributed to a data center which has capacity to server you.
+
+
+![picture 1](https://i.loli.net/2021/10/24/ZVORnhqxFTuYQDJ.png)  
+
+
+### what is fan-out?  twitter take your tweet and put it into in-memory database, that means what they do is pre-computing all the whole timelines of everybody you follow, each user's whole timeline is getting refreshed and recomputed every time somebody updates or posts a tweet this person follows.  when a user send a tweet, twitter store this post in 3 Redis machines, to optimize, only store for users which are active in the last few days or weeks.
+- if a user has not used twitter for long time, if he login in, twitter will take longer time to generate timeline for him, but the system didn't precompute timeline for him.
+
+
+- naive design
+  - use a relational database like mysql 
+    - user table
+    - tweets table
 
 
 clarification -> estimation -> architecture (high level design)
