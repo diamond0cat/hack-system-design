@@ -1,8 +1,47 @@
   - 从概念入手： what is newsfeed? News feed is the constantly updating list of stories in the middle of your home page. news feed included status updates, photos, videos, links, app activity and likes from people, Pages and groups that you follow on Facebook
   - How news feed works?
+
+```
+ Let’s design a newsfeed for Facebook with the following requirements:
+Functional requirements:
+Newsfeed will be generated based on the posts from the people, pages, and groups that a user follows.
+A user may have many friends and follow a large number of pages/groups.
+Feeds may contain images, videos, or just text.
+Our service should support appending new posts as they arrive to the newsfeed for all active users
+Post could be liked by other users and leave comments by other users. 
+Feed timeline should be supportive of adding ads. 
+
+good experience
+
+500 friends.
+2.5 Billion total users
+Daily active user: Daily 1 Billion
+
+estimation:
+1 b *1kb(one post) = 1 TB * 1 year = 400 TB.  ==>storage for one year
+1 b * 1MB
+1b * 10 MB;
+
+POST QPS : 1b * 1 / 10^5 = 10^4 ., PEAK QPS:  10^5.
+READ QPS： 1b * 10 / 10^5 = 10^5 PEAK QPS: 10^6.
+
+Functionalities
+Post
+GetFeed.
+Comment
+Like.
+
+```
+
+
+
+
 - 
 - clarification:
     how to ask questions?明确需求和scale 需要哪些功能？系统规模多大？
+  - how many friends?  how many followers?
+
+
 - 今天记录 Feed 流系统的设计学习笔记，Feed 流常见系统包括 Twitter、微博、Instagram 和抖音等等，它们的特点是，每个用户都是内容创作者，每个用户也都是内容消费者，每个用户看到的内容都是不同的，它取决于用户所关注的用户列表，再结合时间线（有时还包括优先级）将这些用户的最新 feed 聚合，并以流的方式展示出来。
 
 ### SOA: service oriented architecure 基于服务的架构设计(微服务化)。SOA粗暴理解：把系统按照实际业务，拆分成刚刚好大小的、合适的、独立部署的模块，每个模块之间相互独立。
