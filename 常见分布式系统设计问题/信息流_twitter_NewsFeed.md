@@ -1,29 +1,33 @@
   - 从概念入手： what is newsfeed? News feed is the constantly updating list of stories in the middle of your home page. news feed included status updates, photos, videos, links, app activity and likes from people, Pages and groups that you follow on Facebook
   - How news feed works?
 
-```
- Let’s design a newsfeed for Facebook with the following requirements:
-Functional requirements:
-Newsfeed will be generated based on the posts from the people, pages, and groups that a user follows.
-A user may have many friends and follow a large number of pages/groups.
-Feeds may contain images, videos, or just text.
-Our service should support appending new posts as they arrive to the newsfeed for all active users
-Post could be liked by other users and leave comments by other users. 
-Feed timeline should be supportive of adding ads. 
 
-good experience
+- Let’s design a newsfeed for Facebook with the following requirements:
 
-500 friends.
-2.5 Billion total users
-Daily active user: Daily 1 Billion
+- Functional requirements:
+  - Newsfeed will be generated based on the posts from the people, pages, and groups that a user follows.
+  - A user may have many friends and follow a large number of pages/groups.
+  - Feeds may contain images, videos, or just text.
+  - Our service should support appending new posts as they arrive to the newsfeed for all active users
+  - Post could be liked by other users and leave comments by other users. 
+   - Feed timeline should be supportive of adding ads. 
 
-estimation:
-1 b *1kb(one post) = 1 TB * 1 year = 400 TB.  ==>storage for one year
-1 b * 1MB
-1b * 10 MB;
 
-POST QPS : 1b * 1 / 10^5 = 10^4 ., PEAK QPS:  10^5.
-READ QPS： 1b * 10 / 10^5 = 10^5 PEAK QPS: 10^6.
+  - 500 friends.
+  - 2.5 Billion total users
+  - Daily active user: Daily 1 Billion
+
+- estimation:
+  - 1 b *1kb(one post) = 1 TB/day * 1 year = 400 TB.  ==>storage for one year
+  - 1 b * 1MB
+  - 1b * 10 MB;
+
+  - POST QPS : 1b * 1 / 10^5 = 10^4 ., PEAK QPS:  10^5.
+  - READ QPS： 1b * 10 / 10^5 = 10^5 PEAK QPS: 10^6.  (read 10 times / day)
+
+  - 1 billion = 1000 million = 10 ^ 9   facebook DAU: 1000 million
+  - 1 million = 10 ^ 6
+
 
 Functionalities
 Post
@@ -31,10 +35,17 @@ GetFeed.
 Comment
 Like.
 
+
+non-functional requirments:
+high available
+low latency
+
 ```
 
 
-
+clarification -> estimation -> architecture (high level design)
+-
+- how many posts we wanna pull for one timelime? how many post get from each friend?
 
 - 
 - clarification:
